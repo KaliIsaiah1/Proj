@@ -99,6 +99,13 @@
         </form>
     </section>
 
+    <section id="chatbot">
+        <h2>Chatbot</h2>
+        <input type="text" id="chatInput" placeholder="Ask me something...">
+        <button onclick="handleChat()">Send</button>
+        <div id="chatResponse"></div>
+    </section>
+
     <div id="qrCode">
         <h2>Scan My QR Code</h2>
         <img id="qrImage" src="" alt="QR Code" />
@@ -118,6 +125,13 @@
                 "projects": "You can find my projects in the Projects section.",
             };
             return responses[userInput.toLowerCase()] || "I'm sorry, I don't understand.";
+        }
+
+        // Handle Chatbot Interaction
+        function handleChat() {
+            const userInput = document.getElementById('chatInput').value;
+            const response = chatbotResponse(userInput);
+            document.getElementById('chatResponse').innerText = response;
         }
 
         // QR Code Generation
